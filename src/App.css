@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+:root {
+	--background: #efefef;
+	--secondary-bg: #dedede;
+	--text-primary: #121212;
+	--accent: #8E05C2;
+	--wrapper-bg: #fefefe;
+	--text-white: #fff;
+	--font-family: 'Ubuntu', sans-serif;
+}
+
+[data-theme = 'dark'] {
+	--background: #000;
+	--secondary-bg: #232323;
+	--text-primary: #fff;
+	--accent: #8E05C2;
+	--wrapper-bg: #191919;
+	--text-white: #fff;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: var(--font-family);
+}
+
+*::selection {
+	background-color: var(--accent);
+	color: var(--text-white);
+}
+
+body {
+	overflow-x: hidden;
+	font-family: var(--font-family);
+}
+
+.app {
+	background-color: var(--background);
+	width: 100vw;
+	height: 100%;
+	min-height: 100vh;
+	padding: 2%;
+	transition: all .2s ease-in-out;
+}
+
+main {
+	height: 100%;
+	background-color: var(--background);
+	transition: all .2s ease-in-out;
+}
+
+.wrapper {
+	width: 100%;
+	min-width: 300px;
+	max-width: 600px;
+	background-color: var(--wrapper-bg);
+	transition: all .2s ease-in-out;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+	gap: 1rem;
+}
+
+.title_switch {
+	width: 100%;
+}
+
+.title {
+	color: var(--text-primary);
+	transition: all .2s ease-in-out;
+	font-size: 2.5rem;
+	display: inline;
+}
+
+.todo-form {
+	width: 100%;
+	display: flex;
+	gap: 6px;
+}
+
+.task-input {
+	flex: 1;
+	padding: 8px;
+	font-size: 20px;
+	background-color: var(--background);
+	border: 1px solid var(--accent);
+	outline: none;
+	border-radius: 4px;
+	color: var(--text-primary);
+	transition: all .2s ease-in-out;
+}
+
+.task-input::placeholder {
+	color: var(--text-primary);
+	opacity: 0.8;
+	transition: all .2s ease-in-out;
+}
+
+.add-btn {
+	padding: 6px 12px;
+	font-size: 20px;
+	font-weight: 600;
+	border-radius: 4px;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	color: var(--text-white);
+	background-color: var(--accent);
+}
+
+.todo {
+	width: 100%;
+	border-radius: 10px;
+}
+
+.todo-content {
+	background-color: var(--secondary-bg);
+	padding: 8px 12px;
+	width: 100%;
+	border-radius: 10px 10px 0 0;
+	border-bottom: 1px dotted var(--accent);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 16px;
+	color: var(--text-primary);
+	font-weight: 500;
+	transition: all .2s ease-in-out;
+}
+
+.task-title {
+	cursor: pointer;
+}
+
+.completed {
+	text-decoration: line-through;
+	font-style: italic;
+	opacity: 0.8;
+}
+
+.icons {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.edit-icon,
+.delete-icon {
+	cursor: pointer;
+	color: var(--accent);
+	font-size: 18px;
+	transition: all .2s ease-in-out;
+}
+
+.task-input-editing {
+	flex: 1;
+	padding: 8px;
+	font-size: 16px;
+	background-color: var(--background);
+	border: 1px solid var(--accent);
+	outline: none;
+	border-radius: 4px;
+	transition: all .2s ease-in-out;
+	color: var(--text-primary);
+}
+
+.confirm-btn {
+	padding: 6px 12px;
+	font-size: 20px;
+	font-weight: 600;
+	border-radius: 4px;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	color: var(--text-white);
+	background-color: var(--accent);
+}
+
+.sort-options,
+.filter-options {
+	width: fit-content;
+	margin: 0 auto;
+	padding: 10px;
+	font-size: 1rem;
+	border-radius: 4px;
+	border: none;
+	outline: none;
+	color: var(--text-primary);
+	background-color: var(--secondary-bg);
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+}
+
+.task-priority-options {
+	width: fit-content;
+	margin: 0 auto;
+	padding: 6px;
+	font-size: 1rem;
+	border-radius: 4px;
+	border: none;
+	outline: none;
+	color: var(--text-primary);
+	background-color: var(--background);
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+}
+
+.filters {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.priority-selector-title {
+	color: var(--text-primary);
+	font-size: 20px;
+	margin-right: 1rem;
+	transition: all .2s ease-in-out;
+}
+
+.sort-selector-title {
+	color: var(--text-primary);
+	font-size: 20px;
+	margin-right: 1rem;
+	transition: all .2s ease-in-out;
+}
+
+.notes-toggle-btn {
+	padding: 6px 4px 4px 4px;
+	border: none;
+	outline: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	cursor: pointer;
+	color: var(--text-primary);
+	background-color: var(--background);
+	transition: all .2s ease-in-out;
+}
+
+.todo-notes {
+	background-color: var(--secondary-bg);
+	padding: 8px;
+	font-size: 16px;
+	border-radius: 0 0 10px 10px;
+	color: var(--text-primary);
+	border: none;
+	outline: none;
+	transition: all .2s ease-in-out;
+}
+
+.notes-textarea {
+	width: 100%;
+	max-width: 100%;
+	background-color: var(--background);
+	font-size: 16px;
+	border: none;
+	outline: none;
+	color: var(--text-primary);
+	border: 1px dotted var(--accent);
+	margin-bottom: 1rem;
+	resize: vertical;
+	min-height: 2.5rem;
+	padding: 8px;
+	border-radius: 4px;
+	transition: color .2s ease-in-out;
+	transition: background-color .2s ease-in-out;
+}
+
+.save-notes-btn {
+	font-size: 16px;
+	border: none;
+	outline: none;
+	color: var(--text-white);
+	border-radius: 4px;
+	padding: 6px 12px;
+	cursor: pointer;
+	font-weight: 500;
+	background-color: var(--accent);
+}
+
+.dark-mode-switch {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	float: inline-end;
+}
+
+.switch-icons {
+	font-size: 28px;
+	color: var(--accent);
+	transition: all .2s ease-in-out;
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--accent);
+	border-radius: 34px;
+	transition: all .2s ease-in-out;
+}
+
+.slider:before {
+	position: absolute;
+	content: '';
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: var(--background);
+	border-radius: 50%;
+	transition: all .2s ease-in-out;
+}
+
+input:checked + .slider {
+	background-color: var(--accent);
+}
+
+input:checked + .slider:before {
+	transform: translateX(26px);
+}
+
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
+}
+
+.d-flex {
+	display: flex;
+}
+
+.align-center {
+	align-items: center;
+}
